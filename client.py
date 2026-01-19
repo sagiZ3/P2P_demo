@@ -103,7 +103,7 @@ def start_chat_threads(conn_sock: socket.socket, is_p2p=False) -> None:
 
 
 def main():
-    server_ip = input("Server IP: ").strip()
+    server_ip = input("Server IP: ").strip()  # for LAN usages dont put the server as loopback (goes to P2P connection)
     server_port = int(input("Server Port: ").strip())
 
     conn_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -114,3 +114,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
