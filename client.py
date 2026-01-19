@@ -48,6 +48,8 @@ def chat_listen(sock: socket.socket, is_p2p=False) -> None:
 
         if not valid_msg:
             print(f"Error in accepting the message: {msg}")
+            if ConnectionAbortedError.__name__ in msg or ConnectionResetError.__name__ in msg:
+                break
             continue
 
         if "/exit" in msg:
